@@ -2,7 +2,7 @@ import time
 import random
 
 creature = random.choice(['pirate','monster','dragon','thief' ])
-tool = random.choice(['fork','stick','baseball bat','tool'])
+tool = random.choice(['fork','stick','baseball bat'])
 
 def print_pause(message_to_print):
     print(message_to_print)
@@ -42,9 +42,13 @@ def house(creature,tool,weapon):
     print_pause(f'You are about to knock when the door opens and out steps a {creature}. ')
     print_pause(f'''Eep! This is the {creature}'s house! ''')    
     print_pause(f'The {creature} attacks you! ')  
+    # attack(creature,tool,weapon)
 
     if 'sword' in weapon:
-        attack(creature,tool,weapon)
+        print_pause(f'As the {creature} moves to attack, you unsheath your new sword.  ')   
+        print_pause(f'The big sword shines brightly in your hand as you brace yourself for the attack.  ')
+        print_pause(f'But the {creature} takes one look at your shiny new toy and runs away! ')    
+        print_pause(f'You have rid the town of the {creature}. You are victorious!  ')   
    
     else:
         print_pause(f'You feel a bit under-prepared for this, what with only having a tiny {tool}. ')
@@ -68,10 +72,7 @@ def attack(creature,tool,weapon):
         print_pause('''You run back into the field. Luckily, you don't seem to have been followed. ''')
         field(creature,tool,weapon)
         move(creature,tool,weapon)
-        print_pause(f'As the {creature} moves to attack, you unsheath your new sword.  ')   
-        print_pause(f'The big sword shines brightly in your hand as you brace yourself for the attack.  ')
-        print_pause(f'But the {creature} takes one look at your shiny new toy and runs away! ')    
-        print_pause(f'You have rid the town of the {creature}. You are victorious!  ')       
+    
     elif run_or_fight == '2':
         print_pause('You do your best... ')
         print_pause(f'but your dagger is no match for the {creature}. ')
