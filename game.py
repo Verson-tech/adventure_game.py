@@ -42,14 +42,21 @@ def house(creature,tool,weapon):
     print_pause(f'You are about to knock when the door opens and out steps a {creature}. ')
     print_pause(f'''Eep! This is the {creature}'s house! ''')    
     print_pause(f'The {creature} attacks you! ')  
-    # attack(creature,tool,weapon)
+ 
 
     if 'sword' in weapon:
         print_pause(f'As the {creature} moves to attack, you unsheath your new sword.  ')   
         print_pause(f'The big sword shines brightly in your hand as you brace yourself for the attack.  ')
         print_pause(f'But the {creature} takes one look at your shiny new toy and runs away! ')    
         print_pause(f'You have rid the town of the {creature}. You are victorious!  ')   
-   
+                 # play again?
+        print_pause('Would you like to play again? (y/n)')
+        new_game = input('Type    y    for a new game.\n'
+                   'Type    n     to finish the game.\n')
+        if new_game == 'y':
+            play_game()
+        else:
+            print_pause('Ok! See you later! Bye!')   
     else:
         print_pause(f'You feel a bit under-prepared for this, what with only having a tiny {tool}. ')
         attack(creature,tool,weapon)
@@ -78,6 +85,13 @@ def attack(creature,tool,weapon):
         print_pause(f'but your dagger is no match for the {creature}. ')
         print_pause('You have been defeated! ')
         # play again?
+        print_pause('Would you like to play again? (y/n)')
+        new_game = input('Type    y    for a new game.\n'
+                   'Type    n     to finish the game.\n')
+        if new_game == 'y':
+            play_game()
+        else:
+            print_pause('Ok! See you later! Bye!')    
 
 def play_game():
     weapon = []
