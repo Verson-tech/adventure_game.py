@@ -6,7 +6,7 @@ tool = random.choice(['fork','stick','baseball bat'])
 
 def print_pause(message_to_print):
     print(message_to_print)
-    # time.sleep(1)
+    time.sleep(1)
 
 def intro():
     print_pause('You find yourself standing in an open field,'
