@@ -1,11 +1,3 @@
-# pseudo code:
-# intro()
-# field    --> knock or peer
-# cave     --> sword  
-# house    --> fight or run
-# move_around()
-# play_game()
-
 import time
 import random
 
@@ -22,7 +14,6 @@ def intro():
     print_pause(f'Rumor has it that a {creature} is somewhere around here,'
     'and has been terrifying the nearby village.')
  
-
 def field(creature,tool,weapon):
     print_pause('In front of you is a house. ')
     print_pause('To your right is a dark cave. ')
@@ -30,7 +21,7 @@ def field(creature,tool,weapon):
     f'(but not very effective) {tool}. ')
     print_pause('Enter 1 to knock on the door of the house. ')
     print_pause('Enter 2 to peer into the cave. ') 
-
+ 
 
 def cave(creature,tool,weapon):
     print_pause('You peer cautiously into the cave.  ')
@@ -46,14 +37,23 @@ def cave(creature,tool,weapon):
         weapon.append('sword')
     move(creature,tool,weapon)  
 
-
 def house(creature,tool,weapon):
     print_pause('You approach the door of the house.')
     print_pause(f'You are about to knock when the door opens and out steps a {creature}. ')
     print_pause(f'''Eep! This is the {creature}'s house! ''')    
     print_pause(f'The {creature} attacks you! ')  
-    print_pause(f'You feel a bit under-prepared for this, what with only having a tiny {tool}. ')  
 
+    if 'sword' in weapon:
+        attack(creature,tool,weapon)
+   
+    else:
+        print_pause(f'You feel a bit under-prepared for this, what with only having a tiny {tool}. ')
+        attack(creature,tool,weapon)
+        
+
+
+
+      
 
 def move(creature,tool,weapon):
     print_pause('What would you like to do?  ')
@@ -64,7 +64,20 @@ def move(creature,tool,weapon):
     elif house_or_cave == '2':
         cave(creature,tool,weapon)    
 
-
+def attack(creature,tool,weapon):
+    print_pause('What would you like to do?  ')
+    run_or_fight = input('Enter 1 run away. \n'
+                          'Enter 2 fight. \n'  )
+    if run_or_fight == '1':
+        while True:
+            field(creature,tool,weapon)
+            # move(creature,tool,weapon)
+            break 
+    elif run_or_fight == '2':
+        print_pause('You do your best... ')
+        print_pause(f'but your dagger is no match for the {creature}. ')
+        print_pause('You have been defeated! ')
+        # play again?
 
 def play_game():
     weapon = []
