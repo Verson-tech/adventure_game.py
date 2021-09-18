@@ -58,19 +58,8 @@ def house(creature, tool, weapon):
                     ' You are victorious!  ')
     # play again?
         while True:
-            print_pause('Would you like to play again? (y/n)')
-            new_game = input('Type    y    for a new game.\n'
-                             'Type    n     to finish the game.\n')
-            if new_game == 'y':
-                print_pause('Excellent!!! Starting a new game!!!')
-                play_game()
-                break
-            elif new_game == 'n':
-                print_pause('Ok! See you later! Bye for now!')
-                break
-            else:
-                print_pause('Wrong input! Enter   y   or   n !!!')
-
+            play_again_validation()
+            break
     else:
         print_pause(f'You feel a bit under-prepared for this,'
                     f' what with only having a tiny {tool}. ')
@@ -92,6 +81,22 @@ def move(creature, tool, weapon):
             print_pause('Wrong input! Enter   1   or   2 !!!')
 
 
+def play_again_validation():
+    while True:
+        print_pause('Would you like to play again? (y/n)')
+        new_game = input('Type    y    for a new game.\n'
+                         'Type    n     to finish the game.\n')
+        if new_game == 'y':
+            print_pause('Excellent!!! Starting a new game!!!')
+            play_game()
+            break
+        elif new_game == 'n':
+            print_pause('Ok! See you later! Bye for now!')
+            break
+        else:
+            print_pause('Wrong input! Enter   y   or   n !!!')
+
+
 def attack(creature, tool, weapon):
     while True:
         print_pause('What would you like to do?  ')
@@ -108,22 +113,10 @@ def attack(creature, tool, weapon):
             print_pause('You do your best... ')
             print_pause(f'But your dagger is no match for the {creature}. ')
             print_pause('You have been defeated! ')
-
     # play again?
             while True:
-                print_pause('Would you like to play again? (y/n)')
-                new_game = input('Type    y    for a new game.\n'
-                                 'Type    n     to finish the game.\n')
-                if new_game == 'y':
-                    print_pause('Excellent!!! Starting a new game!!!')
-                    play_game()
-                    break
-                elif new_game == 'n':
-                    print_pause('Ok! See you later! Bye for now!')
-                    break
-                else:
-                    print_pause('Wrong input! Enter   y   or   n !!!')
-
+                play_again_validation()
+                break
         else:
             print_pause('Wrong input! Enter   1   or   2 !!!')
             attack(creature, tool, weapon)
